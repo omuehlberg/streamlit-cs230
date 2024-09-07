@@ -127,17 +127,6 @@ def query2(data):
         st.table(filtered_data[['MAP_LABEL_NAME', 'CITY', 'ROUTE', ] + selected_amenities]) # display the columns in list 'displayed' plus the ones selected by user
     
         st.header('Map of Rest Stops with Selected Amenities:')
-
-        us_lat_min, us_lat_max = 24, 50
-        us_lon_min, us_lon_max = -125, -67
-
-        mapData = displayed_data[
-            (displayed_data['lat'] >= us_lat_min) &
-            (displayed_data['lat'] <= us_lat_max) &
-            (displayed_data['lon'] >= us_lon_min) &
-            (displayed_data['lon'] <= us_lon_max)
-        ]
-
         if len(displayed_data) > 0: # ensuring there is data
             st.map(displayed_data.rename(columns={'X': 'lon', 'Y': 'lat'})) # create a map of specified locations using X point (lat) and Y point (lon) to graph them
         else: # error pathways
