@@ -128,7 +128,7 @@ def query2(data):
     
         st.header('Map of Rest Stops with Selected Amenities:')
         if len(displayed_data) > 0: # ensuring there is data
-            st.map(displayed_data.rename(columns={'X': 'lon', 'Y': 'lat'})) # create a map of specified locations using X point (lat) and Y point (lon) to graph them
+            st.map(displayed_data.rename(columns={'LATITUDE': 'lat', 'LONGITUDE': 'lon'})) # create a map of specified locations using X point (lat) and Y point (lon) to graph them
         else: # error pathways
             st.write("No rest stops match your search.")
         st.caption("Some rest stops are close together, please zoom in for a more accurate depiction. Darker red indicates two or more rest stops.") # note for user
